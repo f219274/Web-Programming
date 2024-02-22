@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    table {
+      border: 1px solid black;
+    }
+
+    .text_cal input[type="text"] {
+      padding: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      border: 1px solid black;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .Calculator-button input[type="button"] {
+      width: 100%;
+      padding: 10px;
+      background-color: green;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: Calibri, Candara, Arial, sans-serif;
+      font-style: italic;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td colspan="3">
+        <div class="text_cal"><input type="text" id="calculation" /></div>
+      </td>
+      <td>
+        <div class="Calculator-button">
+          <input type="button" value="C" />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td><div class="Calculator-button"><input type="button" value="1" /></div></td>
+      <td><div class="Calculator-button"><input type="button" value="2" /></div></td>
+      <td><div class="Calculator-button"><input type="button" value="3" /></div></td>
+      <td><div class="Calculator-button"><input type="button" value="/" /></div></td>
+    </tr>
+    <tr>
+      <td><div class="Calculator-button"><input type="button" value="4" /></div></td>
+      <td><div class="Calculator-button"><input type="button" value="5" /></div></td>
+      <td><div class="Calculator-button"><input type="button" value="6" /></div></td>
+      <td><div class="Calculator-button"><input type="button" value="*" /></div></td>
+    </tr>
+    <tr>
+      <td><div class="Calculator-button"><input type="button" value="7" /></div></td>
+      <td><div class="Calculator-button"><input type="button" value="8" /></div></td>
+      <td><div class="Calculator-button"><input type="button" value="9" /></div></td>
+      <td><div class="Calculator-button"><input type="button" value="-" /></div></td>
+    </tr>
+    <tr>
+      <td><div class="Calculator-button"><input type="button" value="0" /></div></td>
+      <td><div class="Calculator-button"><input type="button" value="." /></div></td>
+      <td><div class="Calculator-button"><input type="button" value="=" /></div></td>
+      <td><div class="Calculator-button"><input type="button" value="+" /></div></td>
+    </tr>
+  </table>
+</body>
+</html>
