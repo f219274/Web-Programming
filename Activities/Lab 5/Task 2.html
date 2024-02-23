@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up Form</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    background-image: url("https://i.pinimg.com/736x/64/61/e9/6461e91104acce65bc93c8c93626725b.jpg");
+  }
+  
+  form {
+    background-color: rgb(163, 43, 45);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .error {
+    color: red;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+
+<form id="signupForm" onsubmit="return validateForm()">
+  <div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <span id="usernameError" class="error"></span>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <span id="passwordError" class="error"></span>
+  </div>
+  <div>
+    <label for="birthdate">Birthdate:</label>
+    <input type="date" id="birthdate" name="birthdate" required>
+    <span id="birthdateError" class="error"></span>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <span id="emailError" class="error"></span>
+  </div>
+  <div>
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+      <option value="">Select</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+    <span id="genderError" class="error"></span>
+  </div>
+  <div>
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" name="phone" required>
+    <span id="phoneError" class="error"></span>
+  </div>
+  <div>
+    <label for="zip">Zip Code:</label>
+    <input type="text" id="zip" name="zip" required>
+    <span id="zipError" class="error"></span>
+  </div>
+  <div>
+    <label for="country">Country:</label>
+    <input type="text" id="country" name="country" required>
+    <span id="countryError" class="error"></span>
+  </div>
+  <button type="submit">Sign Up</button>
+</form>
+
+<script>
+function validateForm() {
+  var isValid = true;
+
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+  var birthdate = document.getElementById("birthdate").value;
+  var email = document.getElementById("email").value;
+  var gender = document.getElementById("gender").value;
+  var phone = document.getElementById("phone").value;
+  var zip = document.getElementById("zip").value;
+  var country = document.getElementById("country").value;
+
+  // Username validation
+  if (username === "") {
+    document.getElementById("usernameError").textContent = "Username is required";
+    isValid = false;
+  } else {
+    document.getElementById("usernameError").textContent = "";
+  }
+
+  // Password validation (can add more conditions like minimum length)
+  if (password === "") {
+    document.getElementById("passwordError").textContent = "Password is required";
+    isValid = false;
+  } else {
+    document.getElementById("passwordError").textContent = "";
+  }
+
+  // Birthdate validation
+  if (birthdate === "") {
+    document.getElementById("birthdateError").textContent = "Birthdate is required";
+    isValid = false;
+  } else {
+    document.getElementById("birthdateError").textContent = "";
+  }
+
+  // Email validation using a simple regex pattern
+  var emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+  if (!emailPattern.test(email)) {
+    document.getElementById("emailError").textContent = "Invalid email format";
+    isValid = false;
+  } else {
+    document.getElementById("emailError").textContent = "";
+  }
+
+  // Gender validation
+  if (gender === "") {
+    document.getElementById("genderError").textContent = "Gender is required";
+    isValid = false;
+  } else {
+    document.getElementById("genderError").textContent = "";
+  }
+
+  // Phone number validation (can add more conditions like length)
+  var phonePattern = /^\d{10}$/;
+  if (!phonePattern.test(phone)) {
+    document.getElementById("phoneError").textContent = "Invalid phone number format";
+    isValid = false;
+  } else {
+    document.getElementById("phoneError").textContent = "";
+  }
+
+  // Zip code validation (can add more conditions like length)
+  var zipPattern = /^\d{5}$/;
+  if (!zipPattern.test(zip)) {
+    document.getElementById("zipError").textContent = "Invalid zip code format";
+    isValid = false;
+  } else {
+    document.getElementById("zipError").textContent = "";
+  }
+
+  // Country validation
+  if (country === "") {
+    document.getElementById("countryError").textContent = "Country is required";
+    isValid = false;
+  } else {
+    document.getElementById("countryError").textContent = "";
+  }
+
+  return isValid;
+}
+</script>
+
+</body>
+</html>
