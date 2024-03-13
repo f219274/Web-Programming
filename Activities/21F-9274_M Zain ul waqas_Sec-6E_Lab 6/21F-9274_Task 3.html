@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+#toggleButton {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("#toggleButton").click(function() {
+        $("#toggleImage").toggle();
+        var buttonText = $(this).text();
+        $(this).text(buttonText === "hide" ? "show" : "hide");
+    });
+});
+</script>
+</head>
+<body>
+<img src="LED-LIGHT-PEN.png" id="toggleImage" style="display: none; width: 200px; height: auto;">
+<button id="toggleButton">show image</button>
+</body>
+</html>

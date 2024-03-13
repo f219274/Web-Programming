@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      margin: 50%;
+      padding: 6%;
+    }
+    #animatedDiv {
+      width: 100px;
+      height: 100px;
+      background-color: black;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <div id="animatedDiv"></div>
+  <script>
+    $(document).ready(function() {
+      $("#animatedDiv").animate({
+        left: "500px"
+      }, 8000);
+    });
+  </script>
+</body>
+</html>

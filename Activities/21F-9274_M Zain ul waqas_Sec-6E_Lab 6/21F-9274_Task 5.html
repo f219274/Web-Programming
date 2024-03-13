@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title></title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("#paragraph, #div").click(function() {
+        var elementClass = $(this).attr("class");
+        var elementId = $(this).attr("id");
+        alert("element class: " + elementClass + "\nelement ID: " + elementId);
+    });
+});
+</script>
+</head>
+<body>
+<p id="paragraph" class="paragraph_class here">Click here</p>
+<div id="div" class="div_class here">Click here again</div>
+</body>
+</html>

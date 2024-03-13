@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-git.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Find total width of an element (including width, padding and border) in jQuery.</title>
+</head>
+<body>
+<p id="myText">Updated content: Hello, world!</p> <!-- Changed content of the paragraph -->
+<script>
+$(document).ready(function () {
+  var totalWidth = $("#myText").outerWidth(true);
+  alert("Total width of the element (including width, padding, and border): " + totalWidth + " pixels"); // Modified the text
+});
+</script>
+</body>
+</html>

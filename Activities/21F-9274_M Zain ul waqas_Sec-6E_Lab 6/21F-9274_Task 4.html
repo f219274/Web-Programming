@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $(".Remove-Button").click(function() {
+    $(this).closest("tr").remove();
+  });
+});
+</script>
+</head>
+<body>
+<table border="1" cellspacing="0" width="30%">
+<thead>
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zain</td>
+<td>19</td>
+<td><button class="Remove-Button">Remove</button></td>
+</tr>
+<tr>
+<td>Hassan</td>
+<td>9</td>
+<td><button class="Remove-Button">Remove</button></td>
+</tr>
+<tr>
+<td>Kaif</td>
+<td>29</td>
+<td><button class="Remove-Button">Remove</button></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

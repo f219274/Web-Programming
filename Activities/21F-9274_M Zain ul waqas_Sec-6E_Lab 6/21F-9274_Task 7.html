@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Count child elements using jQuery.</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div id="selected">
+    <p>Red</p>
+    <p>White</p>
+    <p>Green</p>
+    <p>Black</p>
+    <p>Blue</p>
+    <p>Orange</p>
+  </div>
+  <script>
+    $(document).ready(function () {
+      var no_of_p_elements = $("#selected").children("p").length;
+      alert("no of 'p' elements: " + no_of_p_elements);
+    });
+  </script>
+</body>
+</html>
