@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application</title>
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f0f0f0;
+        }
+        .card {
+            width: 90%;
+            max-width: 500px;
+            margin: 80px auto 0;
+            padding: 40px;
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: #333;
+        }
+        .search {
+            margin-bottom: 30px;
+        }
+        .search input {
+            border: 0;
+            outline: 0;
+            background: #f8f8f8;
+            color: #444;
+            padding: 12px 20px;
+            height: 50px;
+            border-radius: 25px;
+            width: calc(100% - 80px);
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .search button {
+            border: 0;
+            outline: 0;
+            background: #5b548a;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .search button img {
+            width: 24px;
+            height: 24px;
+            object-fit: cover;
+            filter: invert(1);
+        }
+
+        .search button:hover {
+            background: #463f70;
+        }
+
+        /* Weather Styles */
+        .weather {
+            display: none;
+        }
+
+        .weather-icon {
+            width: 120px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .temp {
+            font-size: 48px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #1E90FF; /* Change the temperature color */
+        }
+
+        .city {
+            font-size: 24px;
+            font-weight: normal;
+            margin-top: -10px;
+            color: #333; /* Maintain the default color */
+        }
+
+        .details {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            margin-top: 40px;
+        }
+
+        .col {
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+
+        .col img {
+            width: 32px;
+            margin-right: 15px;
+        }
+
+        .humidity,
+        .wind {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: -4px;
+            color: #333; /* Maintain the default color */
+        }
+
+        .error {
+            text-align: left;
+            margin-left: 15px;
+            font-size: 18px;
+            margin-top: 20px;
+            color: #ff3333;
+            display: none;
+        }
+        .w{
+            margin-top: 10%;
+            text-align: center;
+            font-weight: bold;
+            padding: 32%;
+            font-size: 300%;
+        }
+    </style>
+</head>
+<body>
+    <h1= class="w" >Weather Application</h1>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Input City Name Please" spellcheck="false">
+            <button><img src="imagesearching.png"></button>
+        </div>
+        <div class="error">
+            <p>Invalid city name</p>
+        </div>
+        <div class="weather">
+            <img src="imagerainpic.png" class="weather-icon">
+            <h1 class="temp">22°C</h1>
+            <h2 class="city">New York</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="imagehumidity.png">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="imagewind.png">
+                    <div>
+                        <p class="wind">15 Km/h</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const k = "2df7cb70b9c42a7b8b739152a0765153";
+        const u = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+        const b = document.querySelector(".search input");
+        const n = document.querySelector(".search button");
+        const i = document.querySelector(".weather-icon");
+
+        async function c(w) {
+            const r = await fetch(u + w + `&appid=${k}`);
+
+            if (r.status == 404) {
+                document.querySelector(".error").style.display = "block";
+                document.querySelector(".weather").style.display = "none";
+            } else {
+                var d = await r.json();
+
+                document.querySelector(".city").innerHTML = d.name;
+                document.querySelector(".temp").innerHTML = Math.round(d.main.temp) + "°c";
+                document.querySelector(".humidity").innerHTML = d.main.humidity + "%";
+                document.querySelector(".wind").innerHTML = d.wind.speed + " km/h";
+
+                if (d.weather[0].main == "Clouds") {
+                    i.src = "imagecloud.png";
+                } else if (d.weather[0].main == "Clear") {
+                    i.src = "imageclear.png";
+                } else if (d.weather[0].main == "Rain") {
+                    i.src = "imagerain.png";
+                } else if (d.weather[0].main == "Drizzle") {
+                    i.src = "imagedrizzle.png";
+                } else if (d.weather[0].main == "Mist") {
+                    i.src = "imagemist.png";
+                }
+
+                document.querySelector(".weather").style.display = "block";
+                document.querySelector(".error").style.display = "none";
+            }
+        }
+
+        n.addEventListener("click", () => {
+            c(b.value);
+        })
+    </script>
+</body>
+</html>
